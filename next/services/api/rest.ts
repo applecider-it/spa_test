@@ -18,7 +18,9 @@ export async function sendRest<T>(
   };
 
   try {
-    const res = await axios.post<T>(url, data);
+    const res = await axios.post<T>(url, data, {
+      withCredentials: true,
+    });
     result.status = true;
     result.data = res.data;
   } catch (err: unknown) {

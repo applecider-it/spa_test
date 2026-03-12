@@ -1,9 +1,9 @@
 import SendTest from "@/components/development/SendTest"; 
 
-export default function Abount() {
+export default function Development() {
   return (
     <div>
-      Abount
+      Development
 
       <SendTest />
     </div>

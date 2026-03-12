@@ -32,8 +32,8 @@ export default function RootLayout({
           <Link href="/" className="text-blue-500 underline">
             Top
           </Link>
-          <Link href="/about" className="text-blue-500 underline">
-            About
+          <Link href="/development" className="text-blue-500 underline">
+            開発者向けページ
           </Link>
         </div>
         {children}
