@@ -4,6 +4,24 @@ cd /home/owner/workspace/tmp/spa_test
 
 -----------------------------------
 
+port
+
+api: 4000
+next: 3000
+next動作確認: 3001
+
+-----------------------------------
+
+api 
+
+cd /home/owner/workspace/tmp/spa_test/php
+
+php -S localhost:4000 -t ./public
+
+http://localhost:4000/
+
+-----------------------------------
+
 next
 
 cd /home/owner/workspace/tmp/spa_test/next

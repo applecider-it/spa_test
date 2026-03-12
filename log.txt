@@ -1,3 +1,4 @@
 
 npm create next-app@latest next
 
+npm install axios
