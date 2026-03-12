@@ -12,8 +12,9 @@ export default function Development() {
   return (
     <ClientLayout auth={auth} needAuth={true}>
       <div>
-        Development
-        <SendTest />
+        <h2 className='app-h2'>Development</h2>
+
+        {auth.loading ? <>.....</> : <SendTest />}
       </div>
     </ClientLayout>
   );

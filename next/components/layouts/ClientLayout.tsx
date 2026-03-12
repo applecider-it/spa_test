@@ -21,28 +21,35 @@ export default function ClientLayout({
 
   return (
     <>
-      <div className="space-x-3">
-        <Link href="/" prefetch={false} className="text-blue-500 underline">
-          Top
-        </Link>
-        <Link
-          href="/development"
-          prefetch={false}
-          className="text-blue-500 underline"
-        >
-          開発者向けページ
-        </Link>
-        {auth.loading ? (
-          <span>...</span>
+      <div className="flex items-center justify-between bg-gray-100">
+        <div className="space-x-3 p-5">
+          <Link href="/" prefetch={false} className="text-blue-500 underline">
+            Top
+          </Link>
+          <Link
+            href="/development"
+            prefetch={false}
+            className="text-blue-500 underline"
+          >
+            開発者向けページ
+          </Link>
+        </div>
+        <div className="p-5">
+          {auth.loading ? (
+            <span>...</span>
+          ) : (
+            <span>{auth.user ? <>{auth.user.name}</> : <>Guest</>}</span>
+          )}
+        </div>
+      </div>
+
+      <div className="container mx-auto my-10">
+        {authError ? (
+          <div>このページへのアクセス権がありません。</div>
         ) : (
-          <span>{auth.user ? <>{auth.user.name}</> : <>Guest</>}</span>
+          children
         )}
       </div>
-      {authError ? (
-        <div>このページへのアクセス権がありません。</div>
-      ) : (
-        children
-      )}
     </>
   );
 }

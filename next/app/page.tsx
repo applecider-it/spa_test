@@ -19,20 +19,27 @@ export default function Home() {
   return (
     <ClientLayout auth={auth}>
       <div>
-        Home
-        <Image
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
+        <h2 className="app-h2">Home</h2>
+
+        <div className='border-4 p-5'>
+          <Image
+            src="/next.svg"
+            alt="Next.js logo"
+            width={100}
+            height={20}
+            priority
+          />
+        </div>
       </div>
-      <div>
-        <div>text: {text}</div>
-        <div>auth.loading: {auth.loading ? 'on' : 'off'}</div>
-        <div>auth.user: {auth.user ? auth.user.name : 'none'}</div>
-      </div>
+      {auth.loading ? (
+        <>.....</>
+      ) : (
+        <div>
+          <div>text: {text}</div>
+          <div>auth.loading: {auth.loading ? 'on' : 'off'}</div>
+          <div>auth.user: {auth.user ? auth.user.name : 'none'}</div>
+        </div>
+      )}
     </ClientLayout>
   );
 }

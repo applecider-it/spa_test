@@ -10,4 +10,9 @@
   .app-form-input {
     @apply border px-2 py-1 rounded;
   }
+
+  /* タイトル */
+  .app-h2 {
+    @apply text-3xl font-bold my-10;
+  }
 }
