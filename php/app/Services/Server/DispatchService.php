@@ -25,10 +25,12 @@ class DispatchService
 
             return $data;
         } else if ($uri === '/auth') {
+            $user = [
+                'name' => 'テスト',
+            ];
+            $user = null;
             $data = [
-                'user' => [
-                    'name' => 'テスト',
-                ],
+                'user' => $user,
             ];
 
             return $data;

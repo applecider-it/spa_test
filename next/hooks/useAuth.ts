@@ -20,7 +20,7 @@ const authCheck = async (): Promise<AuthResult> => {
  * loading=trueの時は、認証確認中。
  * user=nullの時は、認証失敗。
  */
-export const useAuth = () => {
+export const useAuth = (callback: (((user: User | null) => void) | null) = null) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -29,6 +29,8 @@ export const useAuth = () => {
       const result = await authCheck();
       setUser(result.user);
       setLoading(false);
+
+      if (callback) callback(result.user);
     };
 
     init();

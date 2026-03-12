@@ -9,11 +9,15 @@ import { useAuth } from '@/hooks/useAuth';
 export default function ClientLayout({
   children,
   auth,
+  needAuth = false,
 }: Readonly<{
   children: React.ReactNode;
   auth: ReturnType<typeof useAuth>;
+  needAuth?: boolean;
 }>) {
   console.log('ClientLayout auth', auth);
+
+  const authError = needAuth && !auth.loading && !auth.user;
 
   return (
     <>
@@ -31,10 +35,14 @@ export default function ClientLayout({
         {auth.loading ? (
           <span>...</span>
         ) : (
-          <span>{auth.user ? <>{auth.user.name}</> : <>Error</>}</span>
+          <span>{auth.user ? <>{auth.user.name}</> : <>Guest</>}</span>
         )}
       </div>
-      {children}
+      {authError ? (
+        <div>このページへのアクセス権がありません。</div>
+      ) : (
+        children
+      )}
     </>
   );
 }

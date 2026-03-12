@@ -10,7 +10,7 @@ export default function Development() {
   const auth = useAuth();
 
   return (
-    <ClientLayout auth={auth}>
+    <ClientLayout auth={auth} needAuth={true}>
       <div>
         Development
         <SendTest />
