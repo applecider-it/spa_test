@@ -1,37 +1,19 @@
 import axios from 'axios';
 
-interface RestResult<T> {
-  status: boolean;
-  message: string;
-  data: T | null;
-}
-
 /** REST送信 */
-export async function sendRest<T>(
-  url: string,
-  data: unknown,
-): Promise<RestResult<T>> {
-  const result: RestResult<T> = {
-    status: false,
-    message: '',
-    data: null,
-  };
-
+export async function sendRest<T>(uri: string, data: unknown): Promise<T> {
   try {
-    const res = await axios.post<T>(url, data, {
+    const res = await axios.post<T>('http://localhost:4000' + uri, data, {
       withCredentials: true,
     });
-    result.status = true;
-    result.data = res.data;
+    return res.data;
   } catch (err: unknown) {
     if (axios.isAxiosError(err)) {
-      result.message = err.response?.data?.error || '送信に失敗しました';
+      throw new Error(err.response?.data?.error || '送信に失敗しました');
     } else if (err instanceof Error) {
-      result.message = err.message;
+      throw new Error(err.message);
     } else {
-      result.message = '送信に失敗しました';
+      throw new Error('送信に失敗しました');
     }
   }
-
-  return result;
 }

@@ -23,19 +23,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log('RootLayout');
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className='space-x-3'>
-          <Link href="/" className="text-blue-500 underline">
-            Top
-          </Link>
-          <Link href="/development" className="text-blue-500 underline">
-            開発者向けページ
-          </Link>
-        </div>
         {children}
       </body>
     </html>

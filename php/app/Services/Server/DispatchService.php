@@ -11,17 +11,33 @@ class DispatchService
 {
     public function exec(string $method, string $uri, ?array $jsonData): array
     {
-        $data = [
-            'method' => $method,
-            'uri' => $uri,
-            'message' => 'テストメッセージ',
-            'jsonData' => $jsonData,
+        if ($uri === '/send-test') {
+            $data = [
+                'method' => $method,
+                'uri' => $uri,
+                'message' => 'テストメッセージ',
+                'jsonData' => $jsonData,
+            ];
+
+            if (!isset($_SESSION['cnt'])) $_SESSION['cnt'] = 0;
+
+            $_SESSION['cnt']++;
+
+            return $data;
+        } else if ($uri === '/auth') {
+            $data = [
+                'status' => 'ok',
+                'user' => [
+                    'name' => 'テスト',
+                ],
+            ];
+
+            return $data;
+        }
+
+
+        return [
+            'error' => 'invalid uri',
         ];
-
-        if (!isset($_SESSION['cnt'])) $_SESSION['cnt'] = 0;
-        
-        $_SESSION['cnt'] ++;
-
-        return $data;
     }
 }

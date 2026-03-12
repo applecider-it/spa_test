@@ -6,23 +6,21 @@ export default function SendTest() {
   const [message, setMessage] = useState('');
   const [result, setResult] = useState('');
 
-  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement, SubmitEvent>) => {
+  const handleSubmit = async (
+    e: React.SyntheticEvent<HTMLFormElement, SubmitEvent>,
+  ) => {
     e.preventDefault();
 
     const data = {
       message,
     };
-    const url = 'http://localhost:4000/';
+    const url = '/send-test';
 
     const res = await sendRest<{ message: string }>(url, data);
 
     console.log('res', res);
 
-    if (res.status && res.data) {
-      setResult(res.data.message);
-    } else {
-      setResult(res.message);
-    }
+    setResult(res.message);
   };
 
   return (
@@ -33,10 +31,7 @@ export default function SendTest() {
         onChange={(e) => setMessage(e.target.value)}
         className="app-form-input"
       />
-      <button
-        type="submit"
-        className="app-btn-primary"
-      >
+      <button type="submit" className="app-btn-primary">
         送信
       </button>
       {result && <p>{result}</p>}
