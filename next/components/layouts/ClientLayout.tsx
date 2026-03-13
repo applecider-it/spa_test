@@ -30,7 +30,7 @@ export default function ClientLayout({
           <Link href="/" prefetch={false} className={linkClass}>
             Top
           </Link>
-          <Link href="/posts" prefetch={false} className={linkClass}>
+          <Link href="/posts/1" prefetch={false} className={linkClass}>
             Blog
           </Link>
         </div>

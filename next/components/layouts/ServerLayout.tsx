@@ -21,12 +21,12 @@ export default function ServerLayout({
           <Link href="/" prefetch={false} className={linkClass}>
             Top
           </Link>
-          <Link href="/posts" prefetch={false} className={linkClass}>
+          <Link href="/posts/1" prefetch={false} className={linkClass}>
             Blog
           </Link>
         </div>
         <div className="space-x-3 px-7 py-8">
-          <span>Guest</span>
+          <span>....</span>
         </div>
       </div>
 
