@@ -30,18 +30,20 @@ export default function ClientLayout({
           <Link href="/" prefetch={false} className={linkClass}>
             Top
           </Link>
-          <Link href="/development" prefetch={false} className={linkClass}>
-            開発者向けページ
-          </Link>
-          <Link href="/profile" prefetch={false} className={linkClass}>
-            プロファイル
-          </Link>
         </div>
-        <div className="p-5">
+        <div className="space-x-3 px-7 py-8">
           {auth.loading ? (
             <LoadingLine />
           ) : (
-            <span>{auth.user ? <>{auth.user.name}</> : <>Guest</>}</span>
+            <>
+              {auth.user && (
+                <Link href="/profile" prefetch={false} className={linkClass}>
+                  ユーザーページ
+                </Link>
+              )}
+
+              <span>{auth.user ? <>{auth.user.name}</> : <>Guest</>}</span>
+            </>
           )}
         </div>
       </div>

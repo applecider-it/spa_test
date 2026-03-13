@@ -1,11 +1,14 @@
 'use client';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+
 import SendTest from '@/components/development/SendTest';
 import LoginTest from '@/components/development/LoginTest';
+import AuthLoadingTest from '@/components/development/AuthLoadingTest';
 
 import ClientLayout from '@/components/layouts/ClientLayout';
 import { useAuth } from '@/hooks/useAuth';
 import LoadingBlock from '@/components/ui/LoadingBlock';
-import { useEffect, useState } from 'react';
 
 export default function Development() {
   console.log('Development');
@@ -38,25 +41,13 @@ export default function Development() {
         </div>
 
         <div className={blockClass}>
-          <div>
-            <div>
-              <div>text: {text}</div>
-              <div>auth.loading: {auth.loading ? 'on' : 'off'}</div>
-              <div>auth.user: {auth.user ? auth.user.name : 'none'}</div>
-            </div>
-          </div>
+          <AuthLoadingTest text={text} auth={auth} />
+        </div>
 
-          <div className="mt-5">
-            {auth.loading ? (
-              <LoadingBlock />
-            ) : (
-              <div>
-                <div>text: {text}</div>
-                <div>auth.loading: {auth.loading ? 'on' : 'off'}</div>
-                <div>auth.user: {auth.user ? auth.user.name : 'none'}</div>
-              </div>
-            )}
-          </div>
+        <div className={blockClass}>
+          <Link href="/profile" prefetch={false} className="app-link-normal">
+            ユーザーページ
+          </Link>
         </div>
       </div>
     </ClientLayout>

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import ClientLayout from '@/components/layouts/ClientLayout';
 import { useAuth } from '@/hooks/useAuth';
+import Link from 'next/link';
 
 export default function Home() {
   const auth = useAuth();
@@ -22,6 +23,12 @@ export default function Home() {
             height={20}
             priority
           />
+        </div>
+
+        <div className='mt-10'>
+          <Link href="/development" prefetch={false} className="app-link-normal">
+            開発者向けページ
+          </Link>
         </div>
       </div>
     </ClientLayout>
