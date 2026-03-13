@@ -32,11 +32,12 @@ import ServerPaginate from '@/components/nav/ServerPaginate.vue'
 import { type Post, posts } from '@/../.velite'
 import { getPageInfo } from '@/services/nav/paginate'
 import { toLocaleString } from '@/services/data/datetime'
+import { POST_PER_PAGE } from '@/config/const'
 
 const auth = useAuth();
 
 // 1ページあたりの記事数
-const PER_PAGE = 2
+const PER_PAGE = POST_PER_PAGE
 
 // 日付降順でソート
 const sortedPosts = [...posts].sort(

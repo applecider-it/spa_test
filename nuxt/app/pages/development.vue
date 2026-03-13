@@ -43,10 +43,10 @@ const auth = useAuth()
 // 認証後に text を設定
 const text = ref('')
 watch(
-  () => auth.user,
+  () => auth.user.value,
   (user) => {
     if (user) {
-      text.value = 'test ' + user.value?.name
+      text.value = 'test ' + user.name
     }
   }
 )

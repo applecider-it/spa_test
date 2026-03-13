@@ -35,10 +35,10 @@ const desc = ref('')
 
 // 認証完了後に desc を更新
 watch(
-  () => auth.user,
+  () => auth.user.value,
   (user) => {
-    if (user.value) {
-      desc.value = 'desc desc desc desc ' + user.value.name
+    if (user) {
+      desc.value = 'desc desc desc desc ' + user.name
     }
   }
 )

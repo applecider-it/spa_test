@@ -25,13 +25,9 @@ import LoadingBlock from '@/components/ui/LoadingBlock.vue'
 
 interface Props {
   text: string
-  auth?: ReturnType<typeof useAuth>
+  auth: ReturnType<typeof useAuth>
 }
 
 // props 定義
 const props = defineProps<Props>()
-
-// auth が渡されなければ useAuth を呼ぶ
-const auth = props.auth ?? useAuth()
-const text = props.text
 </script>

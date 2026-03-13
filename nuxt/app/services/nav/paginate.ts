@@ -5,13 +5,5 @@ export function getPageInfo<T>(items: T[], page: number, perPage: number) {
   const idx = page - 1;
   const list = items.slice(idx * perPage, (idx + 1) * perPage);
 
-  const staticParams = [];
-
-  for (let i = 0; i < pageCount; i++) {
-    staticParams.push({
-      page: String(i + 1),
-    });
-  }
-
-  return { pageCount, list, staticParams };
+  return { pageCount, list };
 }
