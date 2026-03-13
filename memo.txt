@@ -29,6 +29,11 @@ cd /home/owner/workspace/tmp/spa_test/next
 npm run dev
 
 
+マークダウンをjsonに変換
+
+npm run velite
+
+
 http://localhost:3000/
 
 -----

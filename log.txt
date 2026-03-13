@@ -2,3 +2,6 @@
 npm create next-app@latest next
 
 npm install axios
+
+npm install velite
+

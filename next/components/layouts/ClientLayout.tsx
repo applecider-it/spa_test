@@ -30,6 +30,9 @@ export default function ClientLayout({
           <Link href="/" prefetch={false} className={linkClass}>
             Top
           </Link>
+          <Link href="/posts" prefetch={false} className={linkClass}>
+            Blog
+          </Link>
         </div>
         <div className="space-x-3 px-7 py-8">
           {auth.loading ? (
