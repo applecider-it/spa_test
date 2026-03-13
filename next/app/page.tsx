@@ -3,17 +3,9 @@
 import Image from 'next/image';
 import ClientLayout from '@/components/layouts/ClientLayout';
 import { useAuth } from '@/hooks/useAuth';
-import { useEffect, useState } from 'react';
-import LoadingBlock from '@/components/ui/LoadingBlock';
 
 export default function Home() {
-  const [text, setText] = useState('');
-
-  const auth = useAuth((user) => {
-    console.log('callback', user);
-
-    if (user) setText('test ' + user.name);
-  });
+  const auth = useAuth();
 
   console.log('Home', auth);
 
@@ -31,18 +23,6 @@ export default function Home() {
             priority
           />
         </div>
-      </div>
-
-      <div className="mt-5">
-        {auth.loading ? (
-          <LoadingBlock />
-        ) : (
-          <div>
-            <div>text: {text}</div>
-            <div>auth.loading: {auth.loading ? 'on' : 'off'}</div>
-            <div>auth.user: {auth.user ? auth.user.name : 'none'}</div>
-          </div>
-        )}
       </div>
     </ClientLayout>
   );

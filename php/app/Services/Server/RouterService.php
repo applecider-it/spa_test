@@ -69,9 +69,9 @@ class RouterService
 
         $jsonData = $this->getJsonRequestData();
 
-        $dispatchService = new DispatchService;
+        $dispatchService = new DispatchService($method, $uri, $jsonData);
 
-        $data = $dispatchService->exec($method, $uri, $jsonData);
+        $data = $dispatchService->exec();
 
         Log::output("data", $data);
         Log::output("jsonData", $jsonData);

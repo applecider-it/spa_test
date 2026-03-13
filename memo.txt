@@ -35,9 +35,15 @@ http://localhost:3000/
 
 build
 
+cd /home/owner/workspace/tmp/spa_test/next
+
 npm run build
 
+-----
+
 phpサーバーで確認
+
+cd /home/owner/workspace/tmp/spa_test/next
 
 php -S localhost:3001 -t ./out
 
